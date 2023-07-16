@@ -27,8 +27,8 @@ Using the trimmed fastq files run:
 
 >Run the get-percentage.pl code on the pre and post intervention exceRpt_readMappingSummary.txt files
 
-input files: exceRpt-Pipeline-2022-9-22-18-50-25-23-Sept-J1_exceRpt_readMappingSummary.txt, exceRpt-Pipeline-2022-9-23-16-57-54-24-Sept-J2_exceRpt_readMappingSummary.txt
-output files: J1_exceRpt_readMappingSummary-percent.txt (Pre-intervention) and J2_exceRpt_readMappingSummary-percent.txt
+Input files: exceRpt-Pipeline-2022-9-22-18-50-25-23-Sept-J1_exceRpt_readMappingSummary.txt, exceRpt-Pipeline-2022-9-23-16-57-54-24-Sept-J2_exceRpt_readMappingSummary.txt
+Output files: J1_exceRpt_readMappingSummary-percent.txt (Pre-intervention) and J2_exceRpt_readMappingSummary-percent.txt
 
 Using the following:
 failed_quality_filter, failed_homopolymer_filter, UniVec_contaminants, rRNA, genome, not_mapped_to_genome_or_libs
@@ -46,6 +46,15 @@ The baseline (pre-intervention) high confidence (expressed with a CPM >= 1 in al
 (i) Age (ii) BMI (iii) Sperm Concentration (iv) Sperm Motility 
 To determine the effect of these factors on the sncRNA as well as to determine the confounding factors to be adjusted for in the differential expression analysis.
 
+Input files: The TMM normalized expression data in CPM for the baseline sncRNA for pre-intervention (MV1) samples. The sample factor file comprising of age/BMI/sperm concentration and sperm motility.
+miRNA: MV1-sample-factors-ed.txt, MV1-miRNA-CPM-TMM.txt
+tRF: MV1-sample-factors-ed.txt, MV1-tRF-CPM-TMM.txt
+piRNA: MV1-sample-factors-ed.txt, MV1-piRNA-CPM-TMM.txt
+
+Output files: correlation test output files comprising of the correlation test estimates and p-values. 
+miRNA: mirs-age-corr1811.txt, mirs-bmi-corr1811.txt, mirs-spconc-corr1811.txt, mirs-spmot-corr1811.txt
+tRF: trfs-age-corr1811.txt, trfs-bmi-corr1811.txt, trfs-spconc-corr1811.txt, trfs-spmot-corr1811.txt
+piRNA: pirs-age-corr1811.txt, pirs-bmi-corr1811.txt, pirs-spconc-corr1811.txt, pirs-spmot-corr1811.txt
 
 
 
