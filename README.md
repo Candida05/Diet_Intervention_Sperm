@@ -43,7 +43,8 @@ input_to_exogenous_miRNA, exogenous_miRNA, input_to_exogenous_rRNA, exogenous_rR
 
 ## 8. Baseline correlation analysis
 The baseline (pre-intervention) high confidence (expressed with a CPM >= 1 in all 17 pre-intervention samples) sncRNA (miRNA, piRNA tRF) are correlated with:
-(i) Age (ii) BMI (iii) Sperm Concentration (iv) Sperm Motility to determine the effect of these factors on the sncRNA as well as to determine the confounding factors to be adjusted for in the differential expression analysis.
+(i) Age (ii) BMI (iii) Sperm Concentration (iv) Sperm Motility 
+To determine the effect of these factors on the sncRNA as well as to determine the confounding factors to be adjusted for in the differential expression analysis.
 
 
 
