@@ -57,8 +57,12 @@ tRF: trfs-age-corr1811.txt, trfs-bmi-corr1811.txt, trfs-spconc-corr1811.txt, trf
 piRNA: pirs-age-corr1811.txt, pirs-bmi-corr1811.txt, pirs-spconc-corr1811.txt, pirs-spmot-corr1811.txt
 
 ## 9. Differential Expression Analysis
-To obtain the sncRNA (miRNA, piRNA and tRF) getting altered due to the diet intervention, differential expression analysis is carried out using Limma. 
-Since age, BMI, sperm concentration and sperm motility were detected as confounding factors by the baseline correlation analysis, these were adjusted for in the design model. The following contrasts are carried out to determine the effect of the intervention over the control:
+To obtain the sncRNA (miRNA, piRNA and tRF) getting altered due to the diet intervention, differential expression analysis is carried out using Limma double voom. In addition, blocking for ID was used to account for paired analysis. 
+Since age, BMI, sperm concentration and sperm motility were detected as confounding factors by the baseline correlation analysis, these were adjusted for in the design model. 
+The following contrasts are carried out to determine the effect of the intervention over the control:
+interventionEffect = (intervention.MV4 - intervention.MV1),
+controlEffect = (control.MV4 - control.MV1), 
+intervention_over_control = (intervention.MV4 - intervention.MV1) - (control.MV4 - control.MV1)
 
 
 
