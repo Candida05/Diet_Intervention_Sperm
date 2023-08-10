@@ -41,7 +41,7 @@ input_to_exogenous_miRNA, exogenous_miRNA, input_to_exogenous_rRNA, exogenous_rR
 ## 6. Run MiRDeep2 pipeline
 ## 7. Run Kumar et al tRF quantification pipeline
 
-## 8. Baseline correlation analysis
+## 8. Baseline Correlation Analysis
 The baseline (pre-intervention) high confidence (expressed with a CPM >= 1 in all 17 pre-intervention samples) sncRNA (miRNA, piRNA tRF) are correlated with:
 (i) Age (ii) BMI (iii) Sperm Concentration (iv) Sperm Motility 
 To determine the effect of these factors on the sncRNA as well as to determine the confounding factors to be adjusted for in the differential expression analysis.
@@ -56,6 +56,9 @@ miRNA: mirs-age-corr1811.txt, mirs-bmi-corr1811.txt, mirs-spconc-corr1811.txt, m
 tRF: trfs-age-corr1811.txt, trfs-bmi-corr1811.txt, trfs-spconc-corr1811.txt, trfs-spmot-corr1811.txt
 piRNA: pirs-age-corr1811.txt, pirs-bmi-corr1811.txt, pirs-spconc-corr1811.txt, pirs-spmot-corr1811.txt
 
+## 9. Differential Expression Analysis
+To obtain the sncRNA (miRNA, piRNA and tRF) getting altered due to the diet intervention, differential expression analysis is carried out using Limma. 
+Since age, BMI, sperm concentration and sperm motility were detected as confounding factors by the baseline correlation analysis, these were adjusted for in the design model. The following contrasts are carried out to determine the effect of the intervention over the control:
 
 
 
