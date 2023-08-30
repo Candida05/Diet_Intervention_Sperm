@@ -67,7 +67,10 @@ input file for mapping: SRR12858025-trim-orig-col.fa (collapsed file output of m
 -r	reads.fa read sequences
 -t	species
 
-## 7. Run Kumar et al tRF quantification pipeline
+## 7. Run tRF & piRNA quantification pipeline
+For the tRF quantification, the in-house developed pipeline by Kumar et al 2016 [PMID: 27263052] was used.
+To run this pipeline permission is needed from the authors. 
+For the piRNA quantification pipeline, Genboree's piRNA mapped data was used.   
 
 ## 8. Baseline Correlation Analysis
 The baseline (pre-intervention) high confidence (expressed with a CPM >= 1 in all 17 pre-intervention samples) sncRNA (miRNA, piRNA tRF) are correlated with:
