@@ -96,5 +96,12 @@ interventionEffect = (intervention.MV4 - intervention.MV1),
 controlEffect = (control.MV4 - control.MV1), 
 intervention_over_control = (intervention.MV4 - intervention.MV1) - (control.MV4 - control.MV1)
 
+## Region analysis Figure 1F 
+To ascertian the genomic regions of all the mapped locations of the baseline sncRNA, the Bioconductor package regioneR was used. The package regioneR offers a statistical framework based on customizable permutation tests to assess the association between genomic region sets and other genomic features.
 
+Input files: The bed file format of the genomic coordinates of the all the mapped locations of baseline sncRNA on the genome (some sncRNA can originate from multiple locations on the genome).
+The bed files of the following genomic region sets.
+chr1-22.gene.bed, chr1-22.intron.bed, chr1-22.codingexon.bed, chr1-22.exonplus.bed, chr1-22.CpG.bed, 
+chr1-22.5utr.bed, chr1-22.3utr.bed, chr1-22.Gene-2000Down.bed, chr1-22.Gene-2000UP.bed
 
+Output files:
