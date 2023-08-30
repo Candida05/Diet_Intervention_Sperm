@@ -39,6 +39,34 @@ All sRNA antisense, circularRNA_sense, circularRNA_antisense, repetitiveElements
 input_to_exogenous_miRNA, exogenous_miRNA, input_to_exogenous_rRNA, exogenous_rRNA, input_to_exogenous_genomes, exogenous_genomes
 
 ## 6. Run MiRDeep2 pipeline
+For quantification and expression profiling of miRNA, the reads were separately mapped to human miRNA sequences using miRDeep2 pipeline. Mapper and quantifier modules of miRDeep2 pipeline were used for this purpose as follows:
+ 
+>mapper.pl SRR12858025-trim-orig.fastq -e -g S25 -h -i -j -l 15 -m -s SRR12858025-trim-orig-col.fa -v
+
+SRR12858025-trim-orig.fastq is the input fastq file and SRR12858025-trim-orig-col.fa is the output file with the collapsed reads
+
+-e	input file is fastq format
+-g	three-letter prefix for reads (by default 'seq')
+-h	parse to fasta format
+-i	convert rna to dna alphabet (to map against genome)
+-j	remove all entries that have a sequence that contains letters other than a,c,g,t,u,n,A,C,G,T,U,N
+-l	int discard reads shorter than int nts, default = 18
+-m	collapse reads
+-s	print processed reads to this file
+-v	outputs progress report
+
+
+>quantifier.pl -p hsa-release-22.1-prec-miRNA.fa -m hsa-release-22.1-mat-miRNA.fa -r SRR12858025-trim-orig-col.fa -t hsa -y SRR12858025-160922
+
+files for mapping: hsa-release-22.1-prec-miRNA.fa (miRNA precursor file) and hsa-release-22.1-mat-miRNA.fa (mature miRNA file)
+
+input file for mapping: SRR12858025-trim-orig-col.fa (collapsed file output of mapper module)
+
+-p	precursor.fa miRNA precursor sequences from miRbase
+-m	mature.fa miRNA sequences from miRbase
+-r	reads.fa read sequences
+-t	species
+
 ## 7. Run Kumar et al tRF quantification pipeline
 
 ## 8. Baseline Correlation Analysis
