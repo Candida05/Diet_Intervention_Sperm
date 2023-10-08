@@ -77,15 +77,17 @@ The baseline (pre-intervention) high confidence (expressed with a CPM >= 1 in al
 (i) Age (ii) BMI (iii) Sperm Concentration (iv) Sperm Motility 
 To determine the effect of these factors on the sncRNA as well as to determine the confounding factors to be adjusted for in the differential expression analysis.
 
+- Code: Script_Figure2_miRNA.R, Script_Figure2_tRFs.R, Script_Figure2_piRNA.R
+  
 - Input files: The TMM normalized expression data in CPM for the baseline sncRNA for pre-intervention (MV1) samples. The sample factor file comprising of age/BMI/sperm concentration and sperm motility.
-- miRNA: MV1-sample-factors-ed.txt, MV1-miRNA-CPM-TMM.txt
-- tRF: MV1-sample-factors-ed.txt, MV1-tRF-CPM-TMM.txt
-- piRNA: MV1-sample-factors-ed.txt, MV1-piRNA-CPM-TMM.txt
+  - miRNA: MV1-sample-factors-ed.txt, MV1-miRNA-CPM-TMM.txt
+  - tRF: MV1-sample-factors-ed.txt, MV1-tRF-CPM-TMM.txt
+  - piRNA: MV1-sample-factors-ed.txt, MV1-piRNA-CPM-TMM.txt
 
 - Output files: correlation test output files comprising of the correlation test estimates and p-values. 
-- miRNA: mirs-age-corr1811.txt, mirs-bmi-corr1811.txt, mirs-spconc-corr1811.txt, mirs-spmot-corr1811.txt
-- tRF: trfs-age-corr1811.txt, trfs-bmi-corr1811.txt, trfs-spconc-corr1811.txt, trfs-spmot-corr1811.txt
-- piRNA: pirs-age-corr1811.txt, pirs-bmi-corr1811.txt, pirs-spconc-corr1811.txt, pirs-spmot-corr1811.txt
+  - miRNA: mirs-age-corr1811.txt, mirs-bmi-corr1811.txt, mirs-spconc-corr1811.txt, mirs-spmot-corr1811.txt
+  - tRF: trfs-age-corr1811.txt, trfs-bmi-corr1811.txt, trfs-spconc-corr1811.txt, trfs-spmot-corr1811.txt
+  - piRNA: pirs-age-corr1811.txt, pirs-bmi-corr1811.txt, pirs-spconc-corr1811.txt, pirs-spmot-corr1811.txt
 
 ## 9. Differential Expression Analysis
 To obtain the sncRNA (miRNA, piRNA and tRF) getting altered due to the diet intervention, differential expression analysis is carried out using Limma double voom. In addition, blocking for ID was used to account for paired analysis. 
@@ -104,9 +106,9 @@ where MV4 is the time point 2 (T2) after the 6 weeks of intervention and MV1 is 
 To ascertian the genomic regions of all the mapped locations of the baseline sncRNA, the Bioconductor package regioneR was used. The package regioneR offers a statistical framework based on customizable permutation tests to assess the association between genomic region sets and other genomic features.
 
 - Input files: The bed file format of the genomic coordinates of the all the mapped locations of baseline sncRNA on the genome (some sncRNA can originate from multiple locations on the genome).
-- The bed files of the following genomic region sets.
-chr1-22.gene.bed, chr1-22.intron.bed, chr1-22.codingexon.bed, chr1-22.exonplus.bed, chr1-22.CpG.bed, 
-chr1-22.5utr.bed, chr1-22.3utr.bed, chr1-22.Gene-2000Down.bed, chr1-22.Gene-2000UP.bed
+  - The bed files of the following genomic region sets.
+   chr1-22.gene.bed, chr1-22.intron.bed, chr1-22.codingexon.bed, chr1-22.exonplus.bed, chr1-22.CpG.bed, 
+   chr1-22.5utr.bed, chr1-22.3utr.bed, chr1-22.Gene-2000Down.bed, chr1-22.Gene-2000UP.bed
 
 ## 11. Effects of dietary intervention on vitamin D and omega-3 fatty acid levels in circulation Figure 3A,B,C
 To study the effects of dietary intervention, we measured the levels of vitamin D and omega-3 fatty acids in blood samples from all male participants (N=102) collected before and after 6 weeks of intervention. To also assess the sampling bias, these blood measures for the 17 subjects included in sncRNA analysis were compared with the full dataset.
