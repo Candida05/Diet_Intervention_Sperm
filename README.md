@@ -99,7 +99,7 @@ controlEffect = (control.MV4 - control.MV1),
 intervention_over_control = (intervention.MV4 - intervention.MV1) - (control.MV4 - control.MV1)
 where MV4 is the time point 2 (T2) after the 6 weeks of intervention and MV1 is the time point 1 (T1) of the first visit
 
-- Code:
+- Code: adjusted-miRDeep2-miRNA-ebayes.R, adjusted-PK-tRF-ebayes.R, adjusted-Genboree-piRNA-ebayes.R
 - Input files:
 
 ## 10. Genomic annotation enrichment of the sperm baseline sncRNAs Figure 1F 
