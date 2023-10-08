@@ -95,6 +95,7 @@ The following contrasts were carried out to determine the effect of the interven
 interventionEffect = (intervention.MV4 - intervention.MV1),
 controlEffect = (control.MV4 - control.MV1), 
 intervention_over_control = (intervention.MV4 - intervention.MV1) - (control.MV4 - control.MV1)
+where MV4 is the time point 2 (T2) after the 6 weeks of intervention and MV1 is the time point 1 (T1) of the first visit
 
 ## Region analysis Figure 1F 
 To ascertian the genomic regions of all the mapped locations of the baseline sncRNA, the Bioconductor package regioneR was used. The package regioneR offers a statistical framework based on customizable permutation tests to assess the association between genomic region sets and other genomic features.
