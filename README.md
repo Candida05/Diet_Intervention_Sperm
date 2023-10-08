@@ -77,15 +77,15 @@ The baseline (pre-intervention) high confidence (expressed with a CPM >= 1 in al
 (i) Age (ii) BMI (iii) Sperm Concentration (iv) Sperm Motility 
 To determine the effect of these factors on the sncRNA as well as to determine the confounding factors to be adjusted for in the differential expression analysis.
 
-Input files: The TMM normalized expression data in CPM for the baseline sncRNA for pre-intervention (MV1) samples. The sample factor file comprising of age/BMI/sperm concentration and sperm motility.
-miRNA: MV1-sample-factors-ed.txt, MV1-miRNA-CPM-TMM.txt
-tRF: MV1-sample-factors-ed.txt, MV1-tRF-CPM-TMM.txt
-piRNA: MV1-sample-factors-ed.txt, MV1-piRNA-CPM-TMM.txt
+- Input files: The TMM normalized expression data in CPM for the baseline sncRNA for pre-intervention (MV1) samples. The sample factor file comprising of age/BMI/sperm concentration and sperm motility.
+- miRNA: MV1-sample-factors-ed.txt, MV1-miRNA-CPM-TMM.txt
+- tRF: MV1-sample-factors-ed.txt, MV1-tRF-CPM-TMM.txt
+- piRNA: MV1-sample-factors-ed.txt, MV1-piRNA-CPM-TMM.txt
 
-Output files: correlation test output files comprising of the correlation test estimates and p-values. 
-miRNA: mirs-age-corr1811.txt, mirs-bmi-corr1811.txt, mirs-spconc-corr1811.txt, mirs-spmot-corr1811.txt
-tRF: trfs-age-corr1811.txt, trfs-bmi-corr1811.txt, trfs-spconc-corr1811.txt, trfs-spmot-corr1811.txt
-piRNA: pirs-age-corr1811.txt, pirs-bmi-corr1811.txt, pirs-spconc-corr1811.txt, pirs-spmot-corr1811.txt
+- Output files: correlation test output files comprising of the correlation test estimates and p-values. 
+- miRNA: mirs-age-corr1811.txt, mirs-bmi-corr1811.txt, mirs-spconc-corr1811.txt, mirs-spmot-corr1811.txt
+- tRF: trfs-age-corr1811.txt, trfs-bmi-corr1811.txt, trfs-spconc-corr1811.txt, trfs-spmot-corr1811.txt
+- piRNA: pirs-age-corr1811.txt, pirs-bmi-corr1811.txt, pirs-spconc-corr1811.txt, pirs-spmot-corr1811.txt
 
 ## 9. Differential Expression Analysis
 To obtain the sncRNA (miRNA, piRNA and tRF) getting altered due to the diet intervention, differential expression analysis is carried out using Limma double voom. In addition, blocking for ID was used to account for paired analysis. 
@@ -100,7 +100,7 @@ where MV4 is the time point 2 (T2) after the 6 weeks of intervention and MV1 is 
 - Code:
 - Input files:
 
-## 10. Region analysis Figure 1F 
+## 10. Genomic annotation enrichment of the sperm baseline sncRNAs Figure 1F 
 To ascertian the genomic regions of all the mapped locations of the baseline sncRNA, the Bioconductor package regioneR was used. The package regioneR offers a statistical framework based on customizable permutation tests to assess the association between genomic region sets and other genomic features.
 
 - Input files: The bed file format of the genomic coordinates of the all the mapped locations of baseline sncRNA on the genome (some sncRNA can originate from multiple locations on the genome).
