@@ -106,7 +106,7 @@ where MV4 is the time point 2 (T2) after the 6 weeks of intervention and MV1 is 
   - tRF: All-sample-factors-ed.txt, PK-tRF-expression-profile-orig.txt
   - piRNA: All-sample-factors-ed.txt, Genboree-piRNA-expression-profile-orig.txt
  
- - Output files: Differentially expressed sncRNA with the logFC and p-values. These files need to be sorted in descending order of p-value to obtain the significant ones.   
+ - Output files: Differentially expressed sncRNA with the logFC and p-values. These files need to be sorted in descending order of p-value to obtain the significant ones. The volcano plots depict the most significant differentially expressed sncRNA (p-val <0.01).   
    - miRNA: DE-miRDeep2-miRNAs.txt, volcano-DE-miRDeep2-miRNAs.tiff
    - tRF: DE-PK-trfs.txt, volcano-DE-PK-trfs.tiff
    - piRNA: DE-Genboree-piRNAs.txt, volcano-DE-Genboree-piRNAs.tiff
