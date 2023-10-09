@@ -107,9 +107,9 @@ where MV4 is the time point 2 (T2) after the 6 weeks of intervention and MV1 is 
   - piRNA: All-sample-factors-ed.txt, Genboree-piRNA-expression-profile-orig.txt
  
  - Output files: Differentially expressed sncRNA with the logFC and p-values. These files need to be sorted in descending order of p-value to obtain the significant ones.   
-  - miRNA: DE-miRDeep2-miRNAs.txt, volcano-DE-miRDeep2-miRNAs.tiff
-  - tRF: DE-PK-trfs.txt, volcano-DE-PK-trfs.tiff
-  - piRNA: DE-Genboree-piRNAs.txt, volcano-DE-Genboree-piRNAs.tiff
+   - miRNA: DE-miRDeep2-miRNAs.txt, volcano-DE-miRDeep2-miRNAs.tiff
+   - tRF: DE-PK-trfs.txt, volcano-DE-PK-trfs.tiff
+   - piRNA: DE-Genboree-piRNAs.txt, volcano-DE-Genboree-piRNAs.tiff
 
 ## 10. Genomic annotation enrichment of the sperm baseline sncRNAs Figure 1F 
 To ascertian the genomic regions of all the mapped locations of the baseline sncRNA, the Bioconductor package regioneR was used. The package regioneR offers a statistical framework based on customizable permutation tests to assess the association between genomic region sets and other genomic features.
