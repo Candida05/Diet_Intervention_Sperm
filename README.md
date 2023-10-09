@@ -114,7 +114,9 @@ where MV4 is the time point 2 (T2) after the 6 weeks of intervention and MV1 is 
 ## 10. Genomic annotation enrichment of the sperm baseline sncRNAs Figure 1F 
 To ascertian the genomic regions of all the mapped locations of the baseline sncRNA, the Bioconductor package regioneR was used. The package regioneR offers a statistical framework based on customizable permutation tests to assess the association between genomic region sets and other genomic features.
 
+- Code: running-Region-miRNA.R, running-Region-tRF.R, running-Region-piRNA.R
 - Input files: The bed file format of the genomic coordinates of the all the mapped locations of baseline sncRNA on the genome (some sncRNA can originate from multiple locations on the genome).
+  - BL-mirs-all-matches-hg38-coord-6c-2608.bed, Bl-pirs-all-matches-hg18-6c-lifted-orig-hg38-2408-rem-random.bed, Bl-tRFs-all-matches-hg19-6c-lifted-orig-hg38.bed
   - The bed files of the following genomic region sets.
    chr1-22.gene.bed, chr1-22.intron.bed, chr1-22.codingexon.bed, chr1-22.exonplus.bed, chr1-22.CpG.bed, 
    chr1-22.5utr.bed, chr1-22.3utr.bed, chr1-22.Gene-2000Down.bed, chr1-22.Gene-2000UP.bed
