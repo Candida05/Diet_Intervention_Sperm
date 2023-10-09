@@ -84,10 +84,10 @@ To determine the effect of these factors on the sncRNA as well as to determine t
   - tRF: MV1-sample-factors-ed.txt, MV1-tRF-CPM-TMM.txt
   - piRNA: MV1-sample-factors-ed.txt, MV1-piRNA-CPM-TMM.txt
 
-- Output files: correlation test output files comprising of the correlation test estimates and p-values. 
-  - miRNA: mirs-age-corr1811.txt, mirs-bmi-corr1811.txt, mirs-spconc-corr1811.txt, mirs-spmot-corr1811.txt
-  - tRF: trfs-age-corr1811.txt, trfs-bmi-corr1811.txt, trfs-spconc-corr1811.txt, trfs-spmot-corr1811.txt
-  - piRNA: pirs-age-corr1811.txt, pirs-bmi-corr1811.txt, pirs-spconc-corr1811.txt, pirs-spmot-corr1811.txt
+- Output files: correlation test output files comprising of the correlation test estimates and p-values. The figures comprise of the top two highly correlated sncRNA with age, BMI, sperm concentration and sperm motility.
+  - miRNA: mirs-age-corr1811.txt, mirs-bmi-corr1811.txt, mirs-spconc-corr1811.txt, mirs-spmot-corr1811.txt, Figure2_miRNA.png
+  - tRF: trfs-age-corr1811.txt, trfs-bmi-corr1811.txt, trfs-spconc-corr1811.txt, trfs-spmot-corr1811.txt, Figure2_piRNA.png
+  - piRNA: pirs-age-corr1811.txt, pirs-bmi-corr1811.txt, pirs-spconc-corr1811.txt, pirs-spmot-corr1811.txt, Figure2_tRFs.png
 
 ## 9. Differential Expression Analysis
 To obtain the sncRNA (miRNA, piRNA and tRF) getting altered due to the diet intervention, differential expression analysis is carried out using Limma double voom. In addition, blocking for ID was used to account for paired analysis. 
