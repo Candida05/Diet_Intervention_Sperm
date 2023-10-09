@@ -121,7 +121,7 @@ To ascertian the genomic regions of all the mapped locations of the baseline snc
    chr1-22.gene.bed, chr1-22.intron.bed, chr1-22.codingexon.bed, chr1-22.exonplus.bed, chr1-22.CpG.bed, 
    chr1-22.5utr.bed, chr1-22.3utr.bed, chr1-22.Gene-2000Down.bed, chr1-22.Gene-2000UP.bed
 
--Output results: z-scores and p-values for the enrichment in the different regions. 
+ - Output results: z-scores and p-values for the enrichment in the different regions. 
 
 ## 11. Effects of dietary intervention on vitamin D and omega-3 fatty acid levels in circulation Figure 3A,B,C
 To study the effects of dietary intervention, we measured the levels of vitamin D and omega-3 fatty acids in blood samples from all male participants (N=102) collected before and after 6 weeks of intervention. To also assess the sampling bias, these blood measures for the 17 subjects included in sncRNA analysis were compared with the full dataset.
