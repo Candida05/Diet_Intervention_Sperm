@@ -124,4 +124,5 @@ To study the effects of dietary intervention, we measured the levels of vitamin 
 
 - Code: Script_Figure3abc.R
 - Input files: Data_SpermDietIntervention_102s.csv, Data_SpermDietIntervention_17s.csv
+- Output files: Figure3A_change_in_conc_vitD_in_serum_nmol_L.png, Figure3B_change_in_percent_EPA_in_RBC.png, Figure3C_change_in_percent_DHA_in_RBC.png
 
