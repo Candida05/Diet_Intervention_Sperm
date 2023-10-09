@@ -27,8 +27,8 @@ Using the trimmed fastq files run:
 
 >Run the get-percentage.pl code on the pre and post intervention exceRpt_readMappingSummary.txt files
 
-Input files: exceRpt-Pipeline-2022-9-22-18-50-25-23-Sept-J1_exceRpt_readMappingSummary.txt, exceRpt-Pipeline-2022-9-23-16-57-54-24-Sept-J2_exceRpt_readMappingSummary.txt
-Output files: J1_exceRpt_readMappingSummary-percent.txt (Pre-intervention) and J2_exceRpt_readMappingSummary-percent.txt
+- Input files: exceRpt-Pipeline-2022-9-22-18-50-25-23-Sept-J1_exceRpt_readMappingSummary.txt, exceRpt-Pipeline-2022-9-23-16-57-54-24-Sept-J2_exceRpt_readMappingSummary.txt
+- Output files: J1_exceRpt_readMappingSummary-percent.txt (Pre-intervention) and J2_exceRpt_readMappingSummary-percent.txt
 
 Using the following:
 failed_quality_filter, failed_homopolymer_filter, UniVec_contaminants, rRNA, genome, not_mapped_to_genome_or_libs
