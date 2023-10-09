@@ -100,7 +100,10 @@ intervention_over_control = (intervention.MV4 - intervention.MV1) - (control.MV4
 where MV4 is the time point 2 (T2) after the 6 weeks of intervention and MV1 is the time point 1 (T1) of the first visit
 
 - Code: adjusted-miRDeep2-miRNA-ebayes.R, adjusted-PK-tRF-ebayes.R, adjusted-Genboree-piRNA-ebayes.R
-- Input files:
+- Input files: The TMM normalized expression data in CPM for the baseline sncRNA for pre-intervention (MV1) samples. The sample factor file comprising of age/BMI/sperm concentration and sperm motility.
+  - miRNA: All-sample-factors-ed.txt, miRDeep2-miRNA-expression-profile-orig.txt
+  - tRF: All-sample-factors-ed.txt, PK-tRF-expression-profile-orig.txt
+  - piRNA: All-sample-factors-ed.txt, Genboree-piRNA-expression-profile-orig.txt
 
 ## 10. Genomic annotation enrichment of the sperm baseline sncRNAs Figure 1F 
 To ascertian the genomic regions of all the mapped locations of the baseline sncRNA, the Bioconductor package regioneR was used. The package regioneR offers a statistical framework based on customizable permutation tests to assess the association between genomic region sets and other genomic features.
