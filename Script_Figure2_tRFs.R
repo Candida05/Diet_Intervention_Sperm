@@ -66,7 +66,7 @@ outputa[1:2,]
 #111 chr6.trf5b.40.ValTAC -0.7573529 0.0004302161
 
 a <- ggplot(data, aes(x = Age, y = log(chr1.tir5.4.GlyCCC,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "cyan", size = 5) + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
      labs(title = "(i)",x="Age", y= "chr1.tir5.4.GlyCCC") + 
      stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
@@ -74,7 +74,7 @@ a <- ggplot(data, aes(x = Age, y = log(chr1.tir5.4.GlyCCC,10))) +
      theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
 
 b <- ggplot(data, aes(x = Age, y =  log(chr6.trf5b.40.ValTAC,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "cyan", size = 5) + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
      labs(title = "(ii)",x="Age", y= "chr6.trf5b.40.ValTAC") + 
      stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
@@ -110,7 +110,7 @@ outputb[1:2,]
 #114 chr6.trf5b.76.LysTTT  0.5717796 0.01648322
 #137  chr7.trf5c.7.CysGCA -0.5288348 0.02906308
 c <- ggplot(data, aes(x = BMI, y = log(chr6.trf5b.76.LysTTT,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "cyan", size = 5) + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
      labs(title = "(iii)",x="BMI", y= "chr6.trf5b.76.LysTTT") + 
      stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
@@ -118,7 +118,7 @@ c <- ggplot(data, aes(x = BMI, y = log(chr6.trf5b.76.LysTTT,10))) +
      theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
 
 d <- ggplot(data, aes(x = BMI, y =  log(chr7.trf5c.7.CysGCA,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "cyan", size = 5) + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
      labs(title = "(iv)",x="BMI", y= "chr7.trf5c.7.CysGCA") + 
      stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
@@ -154,7 +154,7 @@ outputc[1:2,]
 #138     chr9.tir5.7.HisGTG -0.7369713 7.381636e-04
 
 e <- ggplot(data, aes(x = Sperm.concentration..million.per.ml., y = log(chr1.tir5.137.Undet...,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "cyan", size = 5) + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
      labs(title = "(v)",x="Sperm conc.", y= "chr1.tir5.137.Undet...") + 
      stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
@@ -162,7 +162,7 @@ e <- ggplot(data, aes(x = Sperm.concentration..million.per.ml., y = log(chr1.tir
      theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
 
 f <- ggplot(data, aes(x = Sperm.concentration..million.per.ml., y =  log(chr9.tir5.7.HisGTG,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "cyan", size = 5) + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
      labs(title = "(vi)",x="Sperm conc.", y= "chr9.tir5.7.HisGTG") + 
      stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
@@ -198,7 +198,7 @@ outputm[1:2,]
 #123  chr6.trf5c.37.ValAAC -0.5798543 0.01469315
 
 g <- ggplot(data, aes(x = Percentage.of.sperm.motile...., y = log(chr19.trf5b.13.ValCAC,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "cyan", size = 5) + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
      labs(title = "(vii)",x="Sperm motility", y= "chr19.trf5b.13.ValCAC") + 
      stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
@@ -206,7 +206,7 @@ g <- ggplot(data, aes(x = Percentage.of.sperm.motile...., y = log(chr19.trf5b.13
      theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
 
 h <- ggplot(data, aes(x = Percentage.of.sperm.motile...., y =  log(chr6.trf5c.37.ValAAC,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "cyan", size = 5) + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
      labs(title = "(viii)",x="Sperm motility", y= "chr6.trf5c.37.ValAAC") + 
      stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
