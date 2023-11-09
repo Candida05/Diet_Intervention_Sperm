@@ -4,6 +4,16 @@ This repository comprises of the steps and codes needed to reproduce the results
 ## 1. Download the fastq files 
 Download the raw fastq files from GSE159752 Use SRA RUN Selector (https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA670419&o=acc_s%3Aa) and the SRA toolkit.
 
+To download SRA toolkit:
+- wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.2/sratoolkit.3.0.2-ubuntu64.tar.gz
+- tar -zxvf sratoolkit.3.0.2-ubuntu64.tar.gz          # extract file 
+- export PATH=$PATH:~/sratoolkit.3.0.2-ubuntu64/bin   # add binaries to path using export path or editing ~/.bashrc file
+- which fastq-dump                                    # verify the binaries added to the system path
+
+To download fastq files:
+- prefetch SRR12858025
+- fastq-dump SRR12858025
+
 ## 2. Run FASTQC
 To check the quality of the reads in each sample use: 
 >auto-run-fastqc.pl list-fastq-files.txt.
