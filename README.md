@@ -14,6 +14,8 @@ To download fastq files:
 - prefetch SRR12858025
 - fastq-dump SRR12858025
 
+To map and rename the SRR files to original sample IDs use the excel file Mapping-SRR-files-sample-IDs.xlsx
+
 ## 2. Run FASTQC
 To check the quality of the reads in each sample use: 
 >auto-run-fastqc.pl list-fastq-files.txt.
