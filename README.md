@@ -70,7 +70,7 @@ SRR12858025-trim-orig.fastq is the input fastq file and SRR12858025-trim-orig-co
 
 >quantifier.pl -p hsa-release-22.1-prec-miRNA.fa -m hsa-release-22.1-mat-miRNA.fa -r SRR12858025-trim-orig-col.fa -t hsa -y SRR12858025-160922
 
-files for mapping: hsa-release-22.1-prec-miRNA.fa (miRNA precursor file) and hsa-release-22.1-mat-miRNA.fa (mature miRNA file)
+files for mapping: hsa-release-22.1-prec-miRNA.fa (miRNA precursor file) and hsa-release-22.1-mat-miRNA.fa (mature miRNA file). These files are available as .txt files (rename to .fa) for running quantifier.pl
 
 input file for mapping: SRR12858025-trim-orig-col.fa (collapsed file output of mapper module)
 
