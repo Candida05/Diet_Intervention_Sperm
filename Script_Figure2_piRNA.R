@@ -1,4 +1,4 @@
-setwd("~/DI-manuscript-rev/Pre-intervention/using-orig-2019-files/01_piRNA")
+setwd("~/DI-manuscript-rev/Pre-intervention/using-orig-2019-files/03_piRNA")
 
 library(edgeR)
 library(limma)
