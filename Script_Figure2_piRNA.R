@@ -1,5 +1,4 @@
-#setwd("~/DI-manuscript-rev/Pre-intervention/using-orig-2019-files/01_miRNA")
-setwd("C:/Users/tanpf/OneDrive - A STAR/Sperm_diet_intervention_sncRNA/Manuscript_prep_sept2023/Figure2/")
+setwd("~/DI-manuscript-rev/Pre-intervention/using-orig-2019-files/01_piRNA")
 
 library(edgeR)
 library(limma)
@@ -66,24 +65,20 @@ outputa[1:2,]
 #1205 piR_013247  0.7034314 0.001629430
 
 a <- ggplot(data, aes(x = Age, y = log(piR_009572,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "salmon") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(i)",x="Age", y= "piR_009572") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(i)",x="Age (years)", y= "piR_009572") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 b <- ggplot(data, aes(x = Age, y =  log(piR_013247,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "salmon") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(ii)",x="Age", y= "piR_013247") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(ii)",x="Age (years)", y= "piR_013247") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
-
-
-ggarrange(a,b, ncol = 4, nrow = 2) %>% 
-  ggexport(filename = "./Output/Figure2_piRNA.png", width = 2200,height = 1200) 
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 
 ###########Corr with BMI###########################################################################################################
@@ -112,24 +107,20 @@ outputb[1:2,]
 #1599 piR_017211 -0.6625772 0.0037511516
 
 c <- ggplot(data, aes(x = BMI, y = log(piR_011527,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "salmon") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(iii)",x="BMI", y= "piR_011527") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(iii)",x=expression("BMI(kg/m"^2*")"), y= "piR_011527") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "bottom", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 d <- ggplot(data, aes(x = BMI, y =  log(piR_017211,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "salmon") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(iv)",x="BMI", y= "piR_017211") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(iv)",x=expression("BMI(kg/m"^2*")"), y= "piR_017211") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
-
-
-ggarrange(a,b,c,d, ncol = 4, nrow = 2) %>% 
-  ggexport(filename = "./Output/Figure2_piRNA.png", width = 2200,height = 1200) 
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 
 ###########Corr with Sperm concentration###########################################################################################
@@ -161,24 +152,20 @@ outputc[1:2,]
 #1844 piR_018904 -0.8681792 6.245260e-06
 
 e <- ggplot(data, aes(x = Sperm.concentration..million.per.ml., y = log(piR_002703,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "salmon") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(v)",x="Sperm conc.", y= "piR_002703") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(v)",x="Sperm conc. (million/ml)", y= "piR_002703") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 f <- ggplot(data, aes(x = Sperm.concentration..million.per.ml., y =  log(piR_018904,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "salmon") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(vi)",x="Sperm conc.", y= "piR_018904") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(vi)",x="Sperm conc. (million/ml)", y= "piR_018904") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "bottom", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
-
-
-ggarrange(a,b,c,d,e,f, ncol = 4, nrow = 2) %>% 
-  ggexport(filename = "./Output/Figure2_piRNA.png", width = 2200,height = 1200) 
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 ###########Corr with Sperm motility#########################################
 outputm <- NULL
@@ -206,21 +193,21 @@ outputm[1:2,]
 #1334 piR_014553  0.6228520 0.0075689629
 
 g <- ggplot(data, aes(x = Percentage.of.sperm.motile...., y = log(piR_004895,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "salmon") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(vii)",x="Sperm motility", y= "piR_004895") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(vii)",x="Sperm motility (%)", y= "piR_004895") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 h <- ggplot(data, aes(x = Percentage.of.sperm.motile...., y =  log(piR_014553,10))) + 
-     geom_point(colour = "salmon", size = 5) + 
+     geom_point(colour = "salmon") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(viii)",x="Sperm motility", y= "piR_014553") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(viii)",x="Sperm motility (%)", y= "piR_014553") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 
 ggarrange(a,b,c,d,e,f,g,h, ncol = 4, nrow = 2) %>% 
-  ggexport(filename = "./Output/Figure2_piRNA.png", width = 2700,height = 1200) 
+ggexport(filename = "./Output/Figure2_piRNA.pdf", width = 12, height = 8)
