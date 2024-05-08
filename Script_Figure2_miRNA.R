@@ -1,5 +1,4 @@
-#setwd("~/DI-manuscript-rev/Pre-intervention/using-orig-2019-files/01_miRNA")
-setwd("C:/Users/tanpf/OneDrive - A STAR/Sperm_diet_intervention_sncRNA/Manuscript_prep_sept2023/Figure2/")
+setwd("~/DI-manuscript-rev/Pre-intervention/using-orig-2019-files/01_miRNA")
 
 library(edgeR)
 library(limma)
@@ -69,23 +68,21 @@ outputa[1:2,]
 #241 miR.3925.3p  0.6053922 0.01001777
 
 a <- ggplot(data, aes(x = Age, y = log(miR.23b.3p,10))) + 
-     geom_point(colour = "olivedrab3", size = 5) + 
+     geom_point(colour = "olivedrab3") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(i)",x="Age", y= "miR.23b.3p") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(i)",x=expression("Age (years)"), y= "miR.23b.3p") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "bottom", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(color="black", size = 15), axis.text =element_text(color="black", size = 15))
 
 b <- ggplot(data, aes(x = Age, y =  log(miR.3925.3p,10))) + 
-     geom_point(colour = "olivedrab3", size = 5) + 
+     geom_point(colour = "olivedrab3") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(ii)",x="Age", y= "miR.3925.3p") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(ii)",x=expression("Age (years)"), y= "miR.3925.3p") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "bottom", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(color="black", size = 15), axis.text =element_text(color="black", size = 15))
 
-ggarrange(a, b, ncol = 2, nrow = 1) %>% 
-  ggexport(filename = "./Output/Figure2_miRNA.png", width = 2000,height = 850)
 
 ###########Corr with BMI########################################
 outputb <- NULL
@@ -111,25 +108,20 @@ outputb[1:2,]
 #155 miR.26a.2.3p  0.6184054 0.008141351
 
 c <- ggplot(data, aes(x = BMI, y = log(miR.204.5p,10))) + 
-     geom_point(colour = "olivedrab3", size = 5) + 
+     geom_point(colour = "olivedrab3") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(iii)",x="BMI", y= "miR.204.5p") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(iii)",x=expression("BMI(kg/m"^2*")"), y= "miR.204.5p") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(color="black", size = 15), axis.text =element_text(color="black", size = 15))
 
 d <- ggplot(data, aes(x = BMI, y =  log(miR.26a.2.3p,10))) + 
-     geom_point(colour = "olivedrab3", size = 5) + 
+     geom_point(colour = "olivedrab3") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(iv)",x="BMI", y= "miR.26a.2.3p") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(iv)",x=expression("BMI(kg/m"^2*")"), y= "miR.26a.2.3p") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "bottom", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
-
-
-ggarrange(a,b,c,d, ncol = 2, nrow = 2) %>% 
-  ggexport(filename = "./Output/Figure2_miRNA.png", width = 2000,height = 850)
-
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(color="black", size = 15), axis.text =element_text(color="black", size = 15))
 
 
 ###########Corr with Sperm concentration#########################################
@@ -157,26 +149,20 @@ outputc[1:2,]
 #3   let.7b.5p -0.8669530 6.669552e-06
 
 e <- ggplot(data, aes(x = Sperm.concentration..million.per.ml., y = log(miR.31.5p,10))) + 
-     geom_point(colour = "olivedrab3", size = 5) + 
+     geom_point(colour = "olivedrab3") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(v)",x="Sperm conc.", y= "miR.31.5p") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(v)",x="Sperm conc. (million/ml)", y= "miR.31.5p") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "bottom", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(color="black", size = 15), axis.text =element_text(color="black", size = 15))
 
 f <- ggplot(data, aes(x = Sperm.concentration..million.per.ml., y =  log(let.7b.5p,10))) + 
-     geom_point(colour = "olivedrab3", size = 5) + 
+     geom_point(colour = "olivedrab3") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(vi)",x="Sperm conc.", y= "let.7b.5p") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(vi)",x="Sperm conc. (million/ml)", y= "let.7b.5p") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
-
-
-ggarrange(a,b,c,d,e,f, ncol = 4, nrow = 2) %>% 
-  ggexport(filename = "./Output/Figure2_miRNA.png", width = 2000,height = 850)
-
-
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(color="black", size = 15), axis.text =element_text(color="black", size = 15))
 
 
 ###########Corr with Sperm motility#########################################
@@ -205,21 +191,21 @@ outputm[1:2,]
 
 
 g <- ggplot(data, aes(x = Percentage.of.sperm.motile...., y = log(miR.4443,10))) + 
-     geom_point(colour = "olivedrab3", size = 5) + 
+     geom_point(colour = "olivedrab3") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(vii)",x="Sperm motility ", y= "miR.4443") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(vii)",x="Sperm motility (%)", y= "miR.4443") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "bottom", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(color="black", size = 15), axis.text =element_text(color="black", size = 15))
 
 h <- ggplot(data, aes(x = Percentage.of.sperm.motile...., y =  log(miR.204.3p,10))) + 
-     geom_point(colour = "olivedrab3", size = 5) + 
+     geom_point(colour = "olivedrab3") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(viii)",x="Sperm motility", y= "miR.204.3p") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(viii)",x="Sperm motility (%)", y= "miR.204.3p") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "bottom", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(color="black", size = 15), axis.text =element_text(color="black", size = 15))
 
 
 ggarrange(a,b,c,d,e,f,g,h, ncol = 4, nrow = 2) %>% 
-  ggexport(filename = "./Output/Figure2_miRNA.png", width = 2700,height = 1200) 
+ggexport(filename = "./Output/Figure2_miRNA.pdf", width = 12, height = 8)
