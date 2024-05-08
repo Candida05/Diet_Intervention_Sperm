@@ -1,5 +1,4 @@
-#setwd("~/DI-manuscript-rev/Pre-intervention/using-orig-2019-files/02_tRF")
-setwd("C:/Users/tanpf/OneDrive - A STAR/Sperm_diet_intervention_sncRNA/Manuscript_prep_sept2023/Figure2/")
+setwd("~/DI-manuscript-rev/Pre-intervention/using-orig-2019-files/02_tRF")
 
 library(edgeR)
 library(limma)
@@ -26,7 +25,7 @@ table(metrics$CoupleID)
 ## Read in counts expression data ##
 ####################################
 
-counts <- read.delim("./data/MV1-tRF-CPM-TMM.txt", header = T) # 17 samples
+counts <- read.delim("./data/MV1-tRF-CPM-TMM-new.txt", header = T) # 17 samples
 colnames(counts)
 length(counts)
 
@@ -66,24 +65,21 @@ outputa[1:2,]
 #111 chr6.trf5b.40.ValTAC -0.7573529 0.0004302161
 
 a <- ggplot(data, aes(x = Age, y = log(chr1.tir5.4.GlyCCC,10))) + 
-     geom_point(colour = "cyan", size = 5) + 
+     geom_point(colour = "cyan") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(i)",x="Age", y= "chr1.tir5.4.GlyCCC") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(i)",x="Age (years)", y= "chr1.tir5.4.GlyCCC") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 b <- ggplot(data, aes(x = Age, y =  log(chr6.trf5b.40.ValTAC,10))) + 
-     geom_point(colour = "cyan", size = 5) + 
+     geom_point(colour = "cyan") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(ii)",x="Age", y= "chr6.trf5b.40.ValTAC") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(ii)",x="Age (years)", y= "chr6.trf5b.40.ValTAC") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
-
-ggarrange(a,b, ncol = 4, nrow = 2) %>% 
-  ggexport(filename = "./Output/Figure2_tRFs.png", width = 2200,height = 1200) 
 
 ###########Corr with BMI#######################################3##
 outputb <- NULL
@@ -110,24 +106,20 @@ outputb[1:2,]
 #114 chr6.trf5b.76.LysTTT  0.5717796 0.01648322
 #137  chr7.trf5c.7.CysGCA -0.5288348 0.02906308
 c <- ggplot(data, aes(x = BMI, y = log(chr6.trf5b.76.LysTTT,10))) + 
-     geom_point(colour = "cyan", size = 5) + 
+     geom_point(colour = "cyan") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(iii)",x="BMI", y= "chr6.trf5b.76.LysTTT") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(iii)",x=expression("BMI(kg/m"^2*")"), y= "chr6.trf5b.76.LysTTT") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 d <- ggplot(data, aes(x = BMI, y =  log(chr7.trf5c.7.CysGCA,10))) + 
-     geom_point(colour = "cyan", size = 5) + 
+     geom_point(colour = "cyan") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(iv)",x="BMI", y= "chr7.trf5c.7.CysGCA") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(iv)",x=expression("BMI(kg/m"^2*")"), y= "chr7.trf5c.7.CysGCA") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
-
-
-ggarrange(a,b,c,d, ncol = 4, nrow = 2) %>% 
-  ggexport(filename = "./Output/Figure2_tRFs.png", width = 2200,height = 1200) 
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 
 ###########Corr with Sperm concentration#########################################
@@ -154,24 +146,20 @@ outputc[1:2,]
 #138     chr9.tir5.7.HisGTG -0.7369713 7.381636e-04
 
 e <- ggplot(data, aes(x = Sperm.concentration..million.per.ml., y = log(chr1.tir5.137.Undet...,10))) + 
-     geom_point(colour = "cyan", size = 5) + 
+     geom_point(colour = "cyan") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(v)",x="Sperm conc.", y= "chr1.tir5.137.Undet...") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(v)",x="Sperm conc. (million/ml)", y= "chr1.tir5.137.Undet...") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 f <- ggplot(data, aes(x = Sperm.concentration..million.per.ml., y =  log(chr9.tir5.7.HisGTG,10))) + 
-     geom_point(colour = "cyan", size = 5) + 
+     geom_point(colour = "cyan") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(vi)",x="Sperm conc.", y= "chr9.tir5.7.HisGTG") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(vi)",x="Sperm conc. (million/ml)", y= "chr9.tir5.7.HisGTG") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
-
-
-ggarrange(a,b,c,d,e,f, ncol = 4, nrow = 2) %>% 
-  ggexport(filename = "./Output/Figure2_tRFs.png", width = 2200,height = 1200) 
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 
 ###########Corr with Sperm motility#########################################
@@ -198,21 +186,21 @@ outputm[1:2,]
 #123  chr6.trf5c.37.ValAAC -0.5798543 0.01469315
 
 g <- ggplot(data, aes(x = Percentage.of.sperm.motile...., y = log(chr19.trf5b.13.ValCAC,10))) + 
-     geom_point(colour = "cyan", size = 5) + 
+     geom_point(colour = "cyan") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(vii)",x="Sperm motility", y= "chr19.trf5b.13.ValCAC") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(vii)",x="Sperm motility (%)", y= "chr19.trf5b.13.ValCAC") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 h <- ggplot(data, aes(x = Percentage.of.sperm.motile...., y =  log(chr6.trf5c.37.ValAAC,10))) + 
-     geom_point(colour = "cyan", size = 5) + 
+     geom_point(colour = "cyan") + 
      geom_smooth(method="lm", formula = y~x, colour="black") + 
-     labs(title = "(viii)",x="Sperm motility", y= "chr6.trf5c.37.ValAAC") + 
-     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 12)   +
+     labs(title = "(viii)",x="Sperm motility (%)", y= "chr6.trf5c.37.ValAAC") + 
+     stat_cor(method = "spearman", label.x.npc= "left", label.y.npc = "top", size= 5)   +
      theme_bw() + 
-     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 50,color="black"), axis.text =element_text(color="black", size = 50))
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text() ,text = element_text(size = 15,color="black"), axis.text =element_text(color="black", size = 15))
 
 
 ggarrange(a,b,c,d,e,f,g,h, ncol = 4, nrow = 2) %>% 
-  ggexport(filename = "./Output/Figure2_tRFs.png", width = 2200,height = 1200) 
+ggexport(filename = "./Output/Figure2_tRFs.pdf", width = 12, height = 8)
