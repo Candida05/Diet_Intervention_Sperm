@@ -5,7 +5,7 @@ pacman::p_load(tidyverse,ggplot2, ggpubr, rstatix)
 
 # SETPATH
 
-dir <- "C:/Users/tanpf/OneDrive - A STAR/Sperm_diet_intervention_sncRNA/Manuscript_prep_sept2023/Figure3abc"
+dir <- "/home/Figure5"
 
 # READ DATA
 
