@@ -123,7 +123,7 @@ where MV4 is the time point 2 (T2) after the 6 weeks of intervention and MV1 is 
    - tRF: DE-PK-trfs.txt, volcano-DE-PK-trfs.tiff
    - piRNA: DE-Genboree-piRNAs.txt, volcano-DE-Genboree-piRNAs.tiff
 
-## 10. Genomic annotation enrichment of the sperm baseline sncRNAs Figure 1F 
+## 10. Genomic annotation enrichment of the sperm baseline sncRNAs Figure 3E 
 To ascertian the genomic regions of all the mapped locations of the baseline sncRNA, the Bioconductor package regioneR was used. The package regioneR offers a statistical framework based on customizable permutation tests to assess the association between genomic region sets and other genomic features.
 
 - Code: running-Region-miRNA.R, running-Region-tRF.R, running-Region-piRNA.R
