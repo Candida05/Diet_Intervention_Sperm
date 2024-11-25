@@ -89,7 +89,7 @@ The baseline (pre-intervention) high confidence (expressed with a CPM >= 1 in al
 (i) Age (ii) BMI (iii) Sperm Concentration (iv) Sperm Motility 
 To determine the effect of these factors on the sncRNA as well as to determine the confounding factors to be adjusted for in the differential expression analysis.
 
-- Code: Script_Figure2_miRNA.R, Script_Figure2_tRFs.R, Script_Figure2_piRNA.R
+- Code: Script_Figure6a_miRNA.R, Script_Figure7a_tRFs.R, Script_Figure7b_piRNA.R
   
 - Input files: The TMM normalized expression data in CPM for the baseline sncRNA for pre-intervention (MV1) samples. The sample factor file comprising of age/BMI/sperm concentration and sperm motility.
   - miRNA: MV1-sample-factors-ed.txt, MV1-miRNA-CPM-TMM.txt
@@ -123,7 +123,7 @@ where MV4 is the time point 2 (T2) after the 6 weeks of intervention and MV1 is 
    - tRF: DE-PK-trfs.txt, volcano-DE-PK-trfs.tiff
    - piRNA: DE-Genboree-piRNAs.txt, volcano-DE-Genboree-piRNAs.tiff
 
-## 10. Genomic annotation enrichment of the sperm baseline sncRNAs Figure 3E 
+## 10. Genomic annotation enrichment of the sperm baseline sncRNAs Figure 3e 
 To ascertian the genomic regions of all the mapped locations of the baseline sncRNA, the Bioconductor package regioneR was used. The package regioneR offers a statistical framework based on customizable permutation tests to assess the association between genomic region sets and other genomic features.
 
 - Code: running-Region-miRNA.R, running-Region-tRF.R, running-Region-piRNA.R
@@ -135,7 +135,7 @@ To ascertian the genomic regions of all the mapped locations of the baseline snc
 
  - Output results: z-scores and p-values for the enrichment in the different regions. 
 
-## 11. Effects of dietary intervention on vitamin D and omega-3 fatty acid levels in circulation Figure 3A,B,C
+## 11. Effects of dietary intervention on vitamin D and omega-3 fatty acid levels in circulation Figure 5a-f
 To study the effects of dietary intervention, we measured the levels of vitamin D and omega-3 fatty acids in blood samples from all male participants (N=102) collected before and after 6 weeks of intervention. To also assess the sampling bias, these blood measures for the 17 subjects included in sncRNA analysis were compared with the full dataset.
 
 - Code: Script_Figure5a-f.R
