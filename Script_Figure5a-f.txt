@@ -1,0 +1,406 @@
+rm(list = ls())
+
+# LIBRARY
+pacman::p_load(tidyverse,ggplot2, ggpubr, rstatix)
+
+# SETPATH
+
+dir <- "C:/Users/tanpf/OneDrive - A STAR/Sperm_diet_intervention_sncRNA/Manuscript_prep_sept2023/Figure3abc"
+
+# READ DATA
+
+sperm17s <- read.csv(paste0(dir,"/data/Data_SpermDietIntervention_17s.csv"), header = T)
+head(sperm17s); dim(sperm17s)
+
+# SAMPLE SIZE 17
+# MV 1
+
+sperm17s_mv1 <- subset(sperm17s, sperm17s$Visit == "MV1")
+sperm17s_mv1 %>% head()
+sperm17s_mv1 %>% names()
+
+colnames(sperm17s_mv1)[6:51] <- paste0(colnames(sperm17s_mv1)[6:51], "_MV1")
+
+# SAMPLE SIZE 17
+# MV4
+
+sperm17s_mv4 <- subset(sperm17s, sperm17s$Visit == "MV4")
+sperm17s_mv4 %>% head()
+sperm17s_mv4 %>% names()
+
+colnames(sperm17s_mv4)[6:51] <- paste0(colnames(sperm17s_mv4)[6:51], "_MV4")
+
+###
+
+sperm102s <- read.csv(paste0(dir,"/data/Data_SpermDietIntervention_102s.csv"), header = T)
+head(sperm102s); dim(sperm102s)
+
+# SAMPLESIZE - 102
+# MV1
+
+sperm102s_mv1 <- subset(sperm102s, sperm102s$Visit.number == "2")
+sperm102s_mv1 %>% head()
+sperm102s_mv1 %>% names()
+
+colnames(sperm102s_mv1)[5:50] <- paste0(colnames(sperm102s_mv1)[5:50], "_MV1")
+
+# SAMPLESIZE - 102
+# MV4
+
+sperm102s_mv4 <- subset(sperm102s, sperm102s$Visit.number == "4")
+sperm102s_mv4 %>% head()
+sperm102s_mv4 %>% names()
+
+colnames(sperm102s_mv4)[5:50] <- paste0(colnames(sperm102s_mv4)[5:50], "_MV4")
+
+# FIGURE 5a
+# VIT D
+
+
+stat.test.102s <- sperm102s_mv4 %>%
+  t_test(Total_concentration_of_Vitamin_D_in_blood_serum_nmol_L_MV4 ~ Group_MV4) 
+stat.test.102s
+
+a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = Total_concentration_of_Vitamin_D_in_blood_serum_nmol_L_MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("Total conc. of vitamin D \nin serum (nmol/L)") +
+      xlab("Post-Intervention") +
+	  ylim(0,300)+
+      ggtitle("n = 102") +
+      stat_pvalue_manual(stat.test.102s, y.position = 270,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(a, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/Total_conc_vitD_in_serum_MV4_102s.pdf"), width = 5,
+           height = 5)
+
+
+stat.test.17s <- sperm17s_mv4 %>%
+  t_test(Total_concentration_of_Vitamin_D_in_blood_serum_nmol_L_MV4 ~ Group_MV4) 
+stat.test.17s
+
+b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = Total_concentration_of_Vitamin_D_in_blood_serum_nmol_L_MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("") +
+      xlab("Post-Intervention") +
+	  ylim(0,300)+
+      ggtitle("n = 17") +
+      stat_pvalue_manual(stat.test.17s, y.position = 270,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(b, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/Total_conc_vitD_in_serum_MV4_17s.pdf"), width = 5,
+           height = 5)
+
+
+ggarrange(a,b, ncol = 2, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/Total_conc_vitD_in_serum_MV4.pdf"), width = 10,
+           height = 5)
+
+# FIGURE 5b
+# EPA IN RBC
+
+stat.test.102s <- sperm102s_mv4 %>%
+  t_test(EPA_in_RBC_._MV4 ~ Group_MV4) 
+stat.test.102s
+
+a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = EPA_in_RBC_._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("% EPA in RBC \n(% of total fatty acid)") +
+      xlab("Post-Intervention") +
+	  ylim(0,6)+
+      ggtitle("n = 102") +
+      stat_pvalue_manual(stat.test.102s, y.position = 5,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(a, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/EPA_in_RBC_MV4_102s.pdf"), width = 5,
+           height = 5)
+
+
+stat.test.17s <- sperm17s_mv4 %>%
+  t_test(EPA_in_RBC_._MV4 ~ Group_MV4) 
+stat.test.17s
+
+b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = EPA_in_RBC_._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("") +
+      xlab("Post-Intervention") +
+	  ylim(0,6)+
+      ggtitle("n = 17") +
+      stat_pvalue_manual(stat.test.17s, y.position = 5,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(b, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/EPA_in_RBC_MV4_17s.pdf"), width = 5,
+           height = 5)
+
+
+ggarrange(a,b, ncol = 2, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/EPA_in_RBC_MV4.pdf"), width = 10,
+           height = 5)
+
+# FIGURE 5c
+# DHA IN RBC
+
+stat.test.102s <- sperm102s_mv4 %>%
+  t_test(DHA_in_RBC_._MV4 ~ Group_MV4) 
+stat.test.102s
+
+a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = DHA_in_RBC_._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("% DHA in RBC \n(% of total fatty acid)") +
+      xlab("Post-Intervention") +
+	  ylim(0,12)+
+      ggtitle("n = 102") +
+      stat_pvalue_manual(stat.test.102s, y.position = 10,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(a, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/DHA_in_RBC_MV4_102s.pdf"), width = 5,
+           height = 5)
+
+
+stat.test.17s <- sperm17s_mv4 %>%
+  t_test(DHA_in_RBC_._MV4 ~ Group_MV4) 
+stat.test.17s
+
+b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = DHA_in_RBC_._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("") +
+      xlab("Post-Intervention") +
+	  ylim(0,12)+
+      ggtitle("n = 17") +
+      stat_pvalue_manual(stat.test.17s, y.position = 10,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(b, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/DHA_in_RBC_MV4_17s.pdf"), width = 5,
+           height = 5)
+
+
+ggarrange(a,b, ncol = 2, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/DHA_in_RBC_MV4.pdf"), width = 10,
+           height = 5)
+
+# FIGURE 5d
+# EPA IN SEMINAL FLUID
+
+stat.test.102s <- sperm102s_mv4 %>%
+  t_test(EPA_in_Seminal_Fluid_._MV4 ~ Group_MV4) 
+stat.test.102s
+
+a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = EPA_in_Seminal_Fluid_._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("% EPA in seminal fluid \n(% of total fatty acid)") +
+      xlab("Post-Intervention") +
+	  ylim(0,0.8)+
+      ggtitle("n = 102") +
+      stat_pvalue_manual(stat.test.102s, y.position = 0.5,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(a, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/EPA_in_seminal_fluid_MV4_102s.pdf"), width = 5,
+           height = 5)
+
+
+stat.test.17s <- sperm17s_mv4 %>%
+  t_test(EPA_in_Seminal_Fluid_._MV4 ~ Group_MV4) 
+stat.test.17s
+
+b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = EPA_in_Seminal_Fluid_._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("") +
+      xlab("Post-Intervention") +
+	  ylim(0,0.8)+
+      ggtitle("n = 17") +
+      stat_pvalue_manual(stat.test.17s, y.position = 0.5,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(b, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/EPA_in_seminal_fluid_MV4_17s.pdf"), width = 5,
+           height = 5)
+
+
+ggarrange(a,b, ncol = 2, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/EPA_in_seminal_fluid_MV4.pdf"), width = 10,
+           height = 5)
+
+# FIGURE 5e
+# DHA IN SEMINAL FLUID
+
+stat.test.102s <- sperm102s_mv4 %>%
+  t_test(DHA_in_Seminal_Fluid_._MV4 ~ Group_MV4) 
+stat.test.102s
+
+a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = DHA_in_Seminal_Fluid_._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("% DHA in seminal fluid \n(% of total fatty acid)") +
+      xlab("Post-Intervention") +
+	  ylim(0,30)+
+      ggtitle("n = 102") +
+      stat_pvalue_manual(stat.test.102s, y.position = 25,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(a, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/DHA_in_seminal_fluid_MV4_102s.pdf"), width = 5,
+           height = 5)
+
+
+stat.test.17s <- sperm17s_mv4 %>%
+  t_test(DHA_in_Seminal_Fluid_._MV4 ~ Group_MV4) 
+stat.test.17s
+
+b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = DHA_in_Seminal_Fluid_._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("") +
+      xlab("Post-Intervention") +
+     ylim(0,30)+
+      ggtitle("n = 17") +
+      stat_pvalue_manual(stat.test.17s, y.position = 25,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(b, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/DHA_in_seminal_fluid_MV4_17s.pdf"), width = 5,
+           height = 5)
+
+
+ggarrange(a,b, ncol = 2, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/DHA_in_seminal_fluid_MV4.pdf"), width = 10,
+           height = 5)
+
+
+# FIGURE 5f
+# PLOT EPA SPERM 
+
+sperm102s_mv4$Group_MV4 <- gsub("placebo", "Control",sperm102s_mv4$Group_MV4)
+sperm102s_mv4$Group_MV4 <- gsub("treatment", "Intervention",sperm102s_mv4$Group_MV4)
+
+sperm102s_mv4 %>% head()
+
+stat.test.102s <- sperm102s_mv4 %>%
+  t_test(EPA_in_Sperm._MV4 ~ Group_MV4) 
+stat.test.102s
+
+a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = EPA_in_Sperm._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("% EPA in sperm \n(% of total fatty acid)") +
+      xlab("Post-Intervention") +
+	  ylim(0,0.3)+
+      ggtitle("n = 102") +
+      stat_pvalue_manual(stat.test.102s, y.position = 0.13,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(a, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/EPA_in_sperm_MV4_102s.pdf"), width = 5,
+           height = 5)
+
+sperm17s_mv4$Group_MV4 <- gsub("placebo", "Control",sperm17s_mv4$Group_MV4)
+sperm17s_mv4$Group_MV4 <- gsub("treatment", "Intervention",sperm17s_mv4$Group_MV4)
+
+
+stat.test.17s <- sperm17s_mv4 %>%
+  t_test(EPA_in_Sperm._MV4 ~ Group_MV4) 
+stat.test.17s
+
+b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = EPA_in_Sperm._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("") +
+      xlab("Post-Intervention") +
+	  ylim(0,0.3)+
+      ggtitle("n = 17") +
+      stat_pvalue_manual(stat.test.17s, y.position = 0.13,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 0.1, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(b, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/EPA_in_sperm_MV4_17s.pdf"), width = 5,
+           height = 5)
+
+ggarrange(a,b, ncol = 2, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/EPA_in_sperm_MV4.pdf"), width = 10,
+           height = 5)
+
+
+# FIGURE 5g
+# DHA IN SPERM
+
+stat.test.102s <- sperm102s_mv4 %>%
+  t_test(DHA_in_Sperm_._MV4 ~ Group_MV4) 
+stat.test.102s
+
+a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = DHA_in_Sperm_._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("% DHA in sperm \n(% of total fatty acid)") +
+      xlab("Post-Intervention") +
+	  ylim(0,35)+
+      ggtitle("n = 102") +
+      stat_pvalue_manual(stat.test.102s, y.position = 12,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 20, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(a, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/DHA_in_sperm_MV4_102s.pdf"), width = 5,
+           height = 5)
+
+stat.test.17s <- sperm17s_mv4 %>%
+  t_test(DHA_in_Sperm_._MV4 ~ Group_MV4) 
+stat.test.17s
+
+b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = DHA_in_Sperm_._MV4)) + 
+      geom_boxplot(aes(color = Group_MV4)) + 
+      geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8) + 
+      ylab("") +
+      xlab("Post-Intervention") +
+	  ylim(0,35)+
+      ggtitle("n = 17") +
+      stat_pvalue_manual(stat.test.17s, y.position = 12,label = "{format(p, digits = 3, scientific = T)}",vjust = -1, bracket.nudge.y = 20, size = 5) +
+      theme_bw() + 
+      theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
+
+
+ggarrange(b, ncol = 1, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/DHA_in_sperm_MV4_17s.pdf"), width = 5,
+           height = 5)
+
+ggarrange(a,b, ncol = 2, nrow = 1) %>% 
+  ggexport(filename = paste0(dir,"/output/DHA_in_sperm_MV4.pdf"), width = 10,
+           height = 5)
+
