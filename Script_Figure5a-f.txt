@@ -5,12 +5,15 @@ pacman::p_load(tidyverse,ggplot2, ggpubr, rstatix)
 
 # SETPATH
 
-dir <- "/home/Figure5"
+dir <- "~/Figure5"
 
 # READ DATA
 
-sperm17s <- read.csv(paste0(dir,"/data/Data_SpermDietIntervention_17s.csv"), header = T)
+sperm17s <- read.csv(paste0(dir,"/Data-input/Data_SpermDietIntervention_17s.csv"), header = T)
 head(sperm17s); dim(sperm17s)
+
+sperm17s$Group <- gsub("treatment", "Intervention", sperm17s$Group)
+sperm17s$Group <- gsub("placebo", "Control", sperm17s $Group)
 
 # SAMPLE SIZE 17
 # MV 1
@@ -32,8 +35,11 @@ colnames(sperm17s_mv4)[6:51] <- paste0(colnames(sperm17s_mv4)[6:51], "_MV4")
 
 ###
 
-sperm102s <- read.csv(paste0(dir,"/data/Data_SpermDietIntervention_102s.csv"), header = T)
+sperm102s <- read.csv(paste0(dir,"/Data-input/Data_SpermDietIntervention_102s.csv"), header = T)
 head(sperm102s); dim(sperm102s)
+
+sperm102s$Group <- gsub("treatment", "Intervention", sperm102s$Group)
+sperm102s$Group <- gsub("placebo", "Control", sperm102s$Group)
 
 # SAMPLESIZE - 102
 # MV1
@@ -73,9 +79,9 @@ a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = Total_concentration_of_Vitamin
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(a, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/Total_conc_vitD_in_serum_MV4_102s.pdf"), width = 5,
-           height = 5)
+#ggarrange(a, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/Total_conc_vitD_in_serum_MV4_102s.pdf"), width = 5,
+#           height = 5)
 
 
 stat.test.17s <- sperm17s_mv4 %>%
@@ -94,13 +100,13 @@ b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = Total_concentration_of_Vitamin_
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(b, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/Total_conc_vitD_in_serum_MV4_17s.pdf"), width = 5,
-           height = 5)
+#ggarrange(b, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/Total_conc_vitD_in_serum_MV4_17s.pdf"), width = 5,
+#           height = 5)
 
 
 ggarrange(a,b, ncol = 2, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/Total_conc_vitD_in_serum_MV4.pdf"), width = 10,
+  ggexport(filename = paste0(dir,"/Data-output/Total_conc_vitD_in_serum_MV4.pdf"), width = 10,
            height = 5)
 
 # FIGURE 5b
@@ -122,9 +128,9 @@ a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = EPA_in_RBC_._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(a, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/EPA_in_RBC_MV4_102s.pdf"), width = 5,
-           height = 5)
+#ggarrange(a, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/EPA_in_RBC_MV4_102s.pdf"), width = 5,
+#           height = 5)
 
 
 stat.test.17s <- sperm17s_mv4 %>%
@@ -143,13 +149,13 @@ b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = EPA_in_RBC_._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(b, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/EPA_in_RBC_MV4_17s.pdf"), width = 5,
-           height = 5)
+#ggarrange(b, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/EPA_in_RBC_MV4_17s.pdf"), width = 5,
+#           height = 5)
 
 
 ggarrange(a,b, ncol = 2, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/EPA_in_RBC_MV4.pdf"), width = 10,
+  ggexport(filename = paste0(dir,"/Data-output/EPA_in_RBC_MV4.pdf"), width = 10,
            height = 5)
 
 # FIGURE 5c
@@ -171,9 +177,9 @@ a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = DHA_in_RBC_._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(a, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/DHA_in_RBC_MV4_102s.pdf"), width = 5,
-           height = 5)
+#ggarrange(a, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/DHA_in_RBC_MV4_102s.pdf"), width = 5,
+#           height = 5)
 
 
 stat.test.17s <- sperm17s_mv4 %>%
@@ -192,13 +198,13 @@ b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = DHA_in_RBC_._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(b, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/DHA_in_RBC_MV4_17s.pdf"), width = 5,
-           height = 5)
+#ggarrange(b, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/DHA_in_RBC_MV4_17s.pdf"), width = 5,
+#           height = 5)
 
 
 ggarrange(a,b, ncol = 2, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/DHA_in_RBC_MV4.pdf"), width = 10,
+  ggexport(filename = paste0(dir,"/Data-output/DHA_in_RBC_MV4.pdf"), width = 10,
            height = 5)
 
 # FIGURE 5d
@@ -220,9 +226,9 @@ a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = EPA_in_Seminal_Fluid_._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(a, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/EPA_in_seminal_fluid_MV4_102s.pdf"), width = 5,
-           height = 5)
+#ggarrange(a, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/EPA_in_seminal_fluid_MV4_102s.pdf"), width = 5,
+#           height = 5)
 
 
 stat.test.17s <- sperm17s_mv4 %>%
@@ -241,13 +247,13 @@ b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = EPA_in_Seminal_Fluid_._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(b, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/EPA_in_seminal_fluid_MV4_17s.pdf"), width = 5,
-           height = 5)
+#ggarrange(b, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/EPA_in_seminal_fluid_MV4_17s.pdf"), width = 5,
+#           height = 5)
 
 
 ggarrange(a,b, ncol = 2, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/EPA_in_seminal_fluid_MV4.pdf"), width = 10,
+  ggexport(filename = paste0(dir,"/Data-output/EPA_in_seminal_fluid_MV4.pdf"), width = 10,
            height = 5)
 
 # FIGURE 5e
@@ -269,9 +275,9 @@ a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = DHA_in_Seminal_Fluid_._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(a, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/DHA_in_seminal_fluid_MV4_102s.pdf"), width = 5,
-           height = 5)
+#ggarrange(a, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/DHA_in_seminal_fluid_MV4_102s.pdf"), width = 5,
+#           height = 5)
 
 
 stat.test.17s <- sperm17s_mv4 %>%
@@ -290,13 +296,13 @@ b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = DHA_in_Seminal_Fluid_._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(b, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/DHA_in_seminal_fluid_MV4_17s.pdf"), width = 5,
-           height = 5)
+#ggarrange(b, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/DHA_in_seminal_fluid_MV4_17s.pdf"), width = 5,
+#           height = 5)
 
 
 ggarrange(a,b, ncol = 2, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/DHA_in_seminal_fluid_MV4.pdf"), width = 10,
+  ggexport(filename = paste0(dir,"/Data-output/DHA_in_seminal_fluid_MV4.pdf"), width = 10,
            height = 5)
 
 
@@ -324,9 +330,9 @@ a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = EPA_in_Sperm._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(a, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/EPA_in_sperm_MV4_102s.pdf"), width = 5,
-           height = 5)
+#ggarrange(a, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/EPA_in_sperm_MV4_102s.pdf"), width = 5,
+#           height = 5)
 
 sperm17s_mv4$Group_MV4 <- gsub("placebo", "Control",sperm17s_mv4$Group_MV4)
 sperm17s_mv4$Group_MV4 <- gsub("treatment", "Intervention",sperm17s_mv4$Group_MV4)
@@ -348,12 +354,12 @@ b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = EPA_in_Sperm._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(b, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/EPA_in_sperm_MV4_17s.pdf"), width = 5,
-           height = 5)
+#ggarrange(b, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/EPA_in_sperm_MV4_17s.pdf"), width = 5,
+#           height = 5)
 
 ggarrange(a,b, ncol = 2, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/EPA_in_sperm_MV4.pdf"), width = 10,
+  ggexport(filename = paste0(dir,"/Data-output/EPA_in_sperm_MV4.pdf"), width = 10,
            height = 5)
 
 
@@ -376,9 +382,9 @@ a <- ggplot(sperm102s_mv4, aes(x = Group_MV4, y = DHA_in_Sperm_._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(a, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/DHA_in_sperm_MV4_102s.pdf"), width = 5,
-           height = 5)
+#ggarrange(a, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/DHA_in_sperm_MV4_102s.pdf"), width = 5,
+#           height = 5)
 
 stat.test.17s <- sperm17s_mv4 %>%
   t_test(DHA_in_Sperm_._MV4 ~ Group_MV4) 
@@ -396,11 +402,11 @@ b <- ggplot(sperm17s_mv4, aes(x = Group_MV4, y = DHA_in_Sperm_._MV4)) +
       theme(legend.position="none",panel.grid.major = element_blank(), panel.grid.minor = element_blank(),plot.title = element_text(hjust = 0.5),text = element_text(size = 20,color="black"), axis.text =element_text(color="black", size = 20))
 
 
-ggarrange(b, ncol = 1, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/DHA_in_sperm_MV4_17s.pdf"), width = 5,
-           height = 5)
+#ggarrange(b, ncol = 1, nrow = 1) %>% 
+#  ggexport(filename = paste0(dir,"/Data-output/DHA_in_sperm_MV4_17s.pdf"), width = 5,
+#           height = 5)
 
 ggarrange(a,b, ncol = 2, nrow = 1) %>% 
-  ggexport(filename = paste0(dir,"/output/DHA_in_sperm_MV4.pdf"), width = 10,
+  ggexport(filename = paste0(dir,"/Data-output/DHA_in_sperm_MV4.pdf"), width = 10,
            height = 5)
 
