@@ -138,7 +138,7 @@ To ascertian the genomic regions of all the mapped locations of the baseline snc
 ## 11. Effects of dietary intervention on vitamin D and omega-3 fatty acid levels in circulation Figure 3A,B,C
 To study the effects of dietary intervention, we measured the levels of vitamin D and omega-3 fatty acids in blood samples from all male participants (N=102) collected before and after 6 weeks of intervention. To also assess the sampling bias, these blood measures for the 17 subjects included in sncRNA analysis were compared with the full dataset.
 
-- Code: Script_Figure3abc.R
+- Code: Script_Figure5a-f.R
 - Input files: Data_SpermDietIntervention_102s.csv, Data_SpermDietIntervention_17s.csv
-- Output files: Figure3A_change_in_conc_vitD_in_serum_nmol_L.png, Figure3B_change_in_percent_EPA_in_RBC.png, Figure3C_change_in_percent_DHA_in_RBC.png
+- Output files: Total_conc_vitD_in_serum_MV4.pdf, EPA_in_RBC_MV4.pdf, DHA_in_RBC_MV4.pdf, EPA_in_seminal_fluid_MV4.pdf, DHA_in_seminal_fluid_MV4.pdf, EPA_in_sperm_MV4.pdf,DHA_in_sperm_MV4.pdf
 
